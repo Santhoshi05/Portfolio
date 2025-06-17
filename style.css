@@ -1,0 +1,261 @@
+* {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  color: #333;
+}
+
+/* Header */
+header {
+  background: radial-gradient(circle, #673ab7 20%, #512da8 100%);
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1rem;
+  position: relative; /* Added to establish stacking context */
+}
+
+header::before {
+  content: ''; /* Ensure no decorative pseudo-element interferes */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Explicitly low z-index to avoid covering buttons */
+}
+
+header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  position: relative;
+  z-index: 2; /* Ensure text is above any pseudo-elements */
+}
+
+header p.lead {
+  font-size: 1.3rem;
+  position: relative;
+  z-index: 2; /* Ensure text is above any pseudo-elements */
+}
+
+header .d-flex {
+  position: relative;
+  z-index: 3; /* Ensure button container is above any pseudo-elements */
+}
+
+/* Social buttons in header */
+header .btn-light {
+  position: relative;
+  z-index: 3; /* Ensure buttons are clickable */
+  pointer-events: auto; /* Explicitly allow clicks */
+  background: rgba(255, 255, 255, 0.95); /* Slightly opaque for visibility */
+  color: #333; /* Contrast for readability */
+  border: 1px solid #673ab7; /* Match header theme */
+  transition: all 0.3s ease; /* Smooth transition */
+}
+
+header .btn-light:hover {
+  background: #ffd54f; /* Match navbar hover color */
+  color: #333;
+  transform: translateY(-3px); /* Subtle lift effect */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* Navbar */
+.navbar {
+  background: #4a148c;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+}
+
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  color: #fff !important; /* Ensure color consistency */
+}
+
+.navbar-nav .nav-link {
+  color: #fff;
+  font-weight: 500;
+  transition: 0.3s;
+  position: relative; /* Added for hover effect */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffd54f;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #ffd54f; /* Match hover color */
+  transition: width 0.3s ease; /* Smooth underline effect */
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 100%; /* Underline on hover */
+}
+
+/* Section spacing */
+.section {
+  padding: 2rem 0.5rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: #4a148c;
+  border-bottom: 3px solid #9575cd;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px #eee;
+  position: relative; /* Added for decorative effect */
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 3px;
+  background: #ffd54f; /* Match navbar hover color */
+  bottom: -3px;
+  left: 0;
+  transition: width 0.3s ease; /* Smooth expansion */
+}
+
+.section-title:hover::after {
+  width: 80px; /* Slightly longer on hover */
+}
+
+/* Cards */
+.card {
+  transition: all 0.4s ease;
+  border: none;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative; /* Added for stacking context */
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+  color: #212121;
+}
+
+.card h5 {
+  color: #4a148c; /* Match section title */
+  font-family: 'Montserrat', sans-serif;
+}
+
+.card p {
+  color: #555; /* Softer text color */
+}
+
+/* Magic button */
+a.btn-magic {
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+  border: none;
+  color: white;
+  font-weight: bold;
+  transition: 0.4s;
+  border-radius: 50px;
+  padding: 0.5rem 1.2rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+a.btn-magic:hover {
+  background: linear-gradient(45deg, #7873f5, #ff6ec4);
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+  background: #311b92;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* List group spacing fix */
+.list-group {
+  margin-top: 0.5rem;
+}
+
+/* Smooth scale for list items on hover */
+.list-group-item {
+  transition: transform 0.3s ease, background 0.3s ease;
+  border: none;
+  background-color: #f9f9f9;
+  border-radius: 8px; /* Added for consistency */
+  padding: 0.8rem; /* Slightly more padding */
+}
+
+.list-group-item:hover {
+  transform: scale(1.02);
+  background-color: #ede7f6;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+header h1, header p.lead {
+  animation: fadeInDown 0.8s ease-out; /* Applied to header text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p.lead {
+    font-size: 1.1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+
+  .card h5 {
+    font-size: 1.1rem;
+  }
+
+  a.btn-magic {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+}
